@@ -6,18 +6,71 @@
 //
 
 import SwiftUI
+import MapKit
+
+struct Result: Codable {
+    var data: [Pothole]
+}
+
+struct Pothole: Codable {
+    public var _id : String
+    public var instruction_reference: String
+    public var defect_detail: String
+    public var lat: Double
+    public var lon: Double
+}
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    @State var potholes:[Pothole] = []
+    @StateObject private var locationManager = LocationManager()
+    @State private var location: MapCameraPosition = .userLocation(fallback: .automatic)
+    
+    func getPotholes() {
+        if let apiUrl = URL(string: "https://potholes.dornar.uk/api/potholes/traveling/54.3501552,-7.6"){
+            var request = URLRequest(url:apiUrl)
+            request.httpMethod = "GET"
+            print(request)
+            URLSession.shared.dataTask(with: request){
+                data, response, error in
+                if let potholeData = data{
+                    if let dataFromAPI =
+                        try?JSONDecoder().decode(Result.self, from:potholeData){
+                        potholes = dataFromAPI.data
+                        print(potholes)
+                    }
+                    
+                }
+            }.resume()
         }
-        .padding()
     }
+    
+    var body: some View {
+        Button("Click me") {
+            getPotholes()
+        }
+        
+        Map(position: $location) {
+            ForEach(potholes, id: \._id){pothole in
+                Marker("\(pothole.defect_detail)", coordinate: CLLocationCoordinate2D(latitude: pothole.lat, longitude: pothole.lon))
+            }
+            
+            
+            
+        }
+        .onAppear(perform: {
+            getPotholes()
+        })
+        
+//        ForEach(potholes, id: \._id) { pothole in
+//            Text("\(pothole.lat), \(pothole.lon)")
+//            
+//        }
+
+        
+    }
+    
 }
+
 
 #Preview {
     ContentView()

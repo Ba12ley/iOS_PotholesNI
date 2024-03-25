@@ -14,6 +14,7 @@
 		5792526E2BB0320600198AA3 /* PotholesNITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792526D2BB0320600198AA3 /* PotholesNITests.swift */; };
 		579252782BB0320600198AA3 /* PotholesNIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579252772BB0320600198AA3 /* PotholesNIUITests.swift */; };
 		5792527A2BB0320600198AA3 /* PotholesNIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579252792BB0320600198AA3 /* PotholesNIUITestsLaunchTests.swift */; };
+		579252872BB03E6200198AA3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579252862BB03E6200198AA3 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		579252732BB0320600198AA3 /* PotholesNIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotholesNIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579252772BB0320600198AA3 /* PotholesNIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholesNIUITests.swift; sourceTree = "<group>"; };
 		579252792BB0320600198AA3 /* PotholesNIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholesNIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		579252862BB03E6200198AA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				5792525C2BB0320500198AA3 /* PotholesNIApp.swift */,
 				5792525E2BB0320500198AA3 /* ContentView.swift */,
+				579252862BB03E6200198AA3 /* LocationManager.swift */,
 				579252602BB0320600198AA3 /* Assets.xcassets */,
 				579252622BB0320600198AA3 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				5792525F2BB0320500198AA3 /* ContentView.swift in Sources */,
 				5792525D2BB0320500198AA3 /* PotholesNIApp.swift in Sources */,
+				579252872BB03E6200198AA3 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +429,13 @@
 				DEVELOPMENT_TEAM = 3Z4JG5S8UP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Show location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +460,13 @@
 				DEVELOPMENT_TEAM = 3Z4JG5S8UP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Show location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
