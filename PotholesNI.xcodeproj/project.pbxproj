@@ -46,6 +46,7 @@
 		579252772BB0320600198AA3 /* PotholesNIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholesNIUITests.swift; sourceTree = "<group>"; };
 		579252792BB0320600198AA3 /* PotholesNIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholesNIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		579252862BB03E6200198AA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5792A0A52BB59074009E82B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +97,7 @@
 		5792525B2BB0320500198AA3 /* PotholesNI */ = {
 			isa = PBXGroup;
 			children = (
+				5792A0A52BB59074009E82B3 /* Info.plist */,
 				5792525C2BB0320500198AA3 /* PotholesNIApp.swift */,
 				5792525E2BB0320500198AA3 /* ContentView.swift */,
 				579252862BB03E6200198AA3 /* LocationManager.swift */,
@@ -429,6 +431,7 @@
 				DEVELOPMENT_TEAM = 3Z4JG5S8UP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotholesNI/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Show location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -460,6 +463,7 @@
 				DEVELOPMENT_TEAM = 3Z4JG5S8UP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotholesNI/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Show location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

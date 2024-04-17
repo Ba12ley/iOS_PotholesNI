@@ -8,6 +8,8 @@
 import SwiftUI
 import MapKit
 
+
+
 struct Result: Codable {
     var data: [Pothole]
 }
@@ -26,7 +28,7 @@ struct ContentView: View {
     @State private var location: MapCameraPosition = .userLocation(fallback: .automatic)
     
     func getPotholes() {
-        if let apiUrl = URL(string: "https://potholes.dornar.uk/api/potholes/traveling/54.3501552,-7.6"){
+        if let apiUrl = URL(string: "https://potholes.dornar.uk/api/potholes/location/54.5,-7.6"){
             var request = URLRequest(url:apiUrl)
             request.httpMethod = "GET"
             print(request)
@@ -47,7 +49,10 @@ struct ContentView: View {
     var body: some View {
         Button("Click me") {
             getPotholes()
+            
         }
+        Text("\(locationManager.region.center.latitude)")
+        Text("\(locationManager.region.center.longitude)")
         
         Map(position: $location) {
             ForEach(potholes, id: \._id){pothole in
@@ -60,11 +65,7 @@ struct ContentView: View {
         .onAppear(perform: {
             getPotholes()
         })
-        
-//        ForEach(potholes, id: \._id) { pothole in
-//            Text("\(pothole.lat), \(pothole.lon)")
-//            
-//        }
+    
 
         
     }
