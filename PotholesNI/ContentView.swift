@@ -25,10 +25,10 @@ struct Pothole: Codable {
 struct ContentView: View {
     @State var potholes:[Pothole] = []
     @StateObject private var locationManager = LocationManager()
-    @State private var location: MapCameraPosition = .userLocation(fallback: .automatic)
+    @State private var location: MapCameraPosition = .userLocation(followsHeading: true, fallback: .automatic)
     
-    func getPotholes() {
-        if let apiUrl = URL(string: "https://potholes.dornar.uk/api/potholes/location/54.5,-7.6"){
+    func getPotholes(lat: Float, lon: Float) {
+        if let apiUrl = URL(string: "https://potholes.dornar.uk/api/potholes/location/\(lat),\(lon)"){
             var request = URLRequest(url:apiUrl)
             request.httpMethod = "GET"
             print(request)
@@ -48,7 +48,7 @@ struct ContentView: View {
     
     var body: some View {
         Button("Click me") {
-            getPotholes()
+            getPotholes(lat: Float(locationManager.region.center.latitude), lon: Float(locationManager.region.center.longitude))
             
         }
         Text("\(locationManager.region.center.latitude)")
@@ -56,17 +56,19 @@ struct ContentView: View {
         
         Map(position: $location) {
             ForEach(potholes, id: \._id){pothole in
-                Marker("\(pothole.defect_detail)", coordinate: CLLocationCoordinate2D(latitude: pothole.lat, longitude: pothole.lon))
+                Marker("\(pothole.defect_detail)", systemImage: "hazardsign", coordinate: CLLocationCoordinate2D(latitude: pothole.lat, longitude: pothole.lon))
             }
             
             
             
         }
         .onAppear(perform: {
-            getPotholes()
+            getPotholes(lat: Float(locationManager.region.center.latitude), lon: Float(locationManager.region.center.longitude))
         })
-    
-
+        .mapStyle(.standard)
+        
+        
+        
         
     }
     
